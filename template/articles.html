@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <div class="articles">
+    {% for entry in source.get_entries('source', 'articles') | sort_ctime(True) %}
+    <div class="article col-md-12 col-sm-12 col-xs-12">
+      <h1 class="text-center">
+        <a class href="{{ entry.link }}">{{ entry.title }}</a>
+      </h1>
+      <p class="text-center text-muted">{{ entry.printable_date }}</p>
+      <p>
+        {{ entry.content | short_story | markdown }}
+      </p>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container content">
+  <div class="row title">
+    <h1 class="text-center">{{ page.title }}</h1>
+    {% if page.timer %}
+      <ul class="event-timer" data-time="{{ page.timer.due_date }}">
+        <li class="btn btn-default">
+          {snn}
+          <br>ثانیه
+        </li> 
+        <li class="btn btn-default">
+          {mnn}
+          <br>دقیقه
+        </li> 
+        <li class="btn btn-default">
+          {hn}
+          <br>ساعت
+        </li> 
+        <li class="btn btn-default">
+          {dn}
+          <br>روز
+        </li> 
+      </ul>
+      <p class="text-center">{{ page.timer.printable_date }}</p>
+    {% endif %}
+  </div>
+  <div class="row description">
+    <div class="col-md-8">
+      {{ page.content | markdown }}
+    </div>
+    <div class="col-md-4">
+      {% if page.map %}
+        <img class="img-responsive" src="{{ page.map.thumb }}" alt="" />
+        <p class="text-mute">
+          برای نمایی بزرگتر
+          <a target="_new" href="{{ page.map.url }}">اینجا</a>
+          را کلیک کنید.
+        </p>
+      {% endif %}
+      {% if page.location %}
+        <p>{{ page.location.address }}</p>
+        {% if page.location.routes %}
+          <ul class="">
+          {% for route in page.location.routes %}
+            <li>{{ route }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

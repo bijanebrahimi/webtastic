@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <div class="wiki">
+    <p>
+گروه کاربران لینوکس مشهد و یا به اختصار مشهد‌لاگ گروهی مردم‌نهاد و غیرانتفاعی است که با هدف ارتقا سطح فرهنگ استفاده عموم از سیستم‌عامل گنو/لینوکس در سال ۸۶ تاسیس شد. برای اطلاعات بیشتر درباره این گروه می‌توانید به وبسایت رسمی اطلاع رسانی گروه مراجعه فرمائید
+</p>
+    <ul class="">
+    {% for entry in source.get_entries('source', 'wiki')|sort_ctime %}
+      <li>
+        <h4><a href="{{ entry.link }}">{{ entry.title }}</a></h4>
+        <p class="text-muted">
+          آخرین تغییرات در 
+          <span class="timer text-muted" title="{{ entry.mtime | iso_date }}">{{ entry.ctime | printable_date }}</span>
+        </p>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
