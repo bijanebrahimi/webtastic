@@ -7,7 +7,7 @@
     <ul class="">
     {% for entry in source.get_entries('source', 'wiki')|sort_ctime %}
       <li>
-        <h4><a href="{{ entry.link }}">{{ entry.title }}</a></h4>
+        <h4><a href="{{ entry.link | abs_link }}">{{ entry.title }}</a></h4>
         <p class="text-muted">
           آخرین تغییرات در 
           <span class="timer text-muted" title="{{ entry.mtime | iso_date }}">{{ entry.ctime | printable_date }}</span>

@@ -3,13 +3,13 @@
   <div class="activities">
     {% for entry in source.get_entries('source', 'activities') | sort_ctime %}
     <div class="activity col-md-6 col-sm-6 col-xs-12">
-      <a href="{{ entry.link }}">
+      <a href="{{ BASE_URL }}{{ entry.link }}">
         <h3>{{ entry.title }}</h3>
       </a>
       {% if entry.thumb %}
-      <img class="img-responsive text-center" src="{{ entry.thumb }}" alt="{{ entry.title }}">
+      <img class="img-responsive text-center" src="{{ entry.thumb | abs_link }}" alt="{{ entry.title }}">
       {% else %}
-      <img class="img-responsive text-center" src="assets/images/activity_image_picture.png" alt="{{ entry.title }}">
+      <img class="img-responsive text-center" src="{{ BASE_URL }}/assets/images/activity_image_picture.png" alt="{{ entry.title }}">
       {% endif %}
     </div>
     {% endfor %}

@@ -31,10 +31,10 @@
     </div>
     <div class="col-md-4">
       {% if page.map %}
-        <img class="img-responsive" src="{{ page.map.thumb }}" alt="" />
+        <img class="img-responsive" src="{{ page.map.thumb | abs_link }}" alt="" />
         <p class="text-mute">
           برای نمایی بزرگتر
-          <a target="_new" href="{{ page.map.url }}">اینجا</a>
+          <a target="_new" href="{{ page.map.url | abs_link }}">اینجا</a>
           را کلیک کنید.
         </p>
       {% endif %}

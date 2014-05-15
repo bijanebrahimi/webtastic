@@ -2,8 +2,8 @@
   {% for entry in source.get_entries('source')|sort_navbar %}
     {% if entry.title %}
     <li class="col-md-2 col-sm-3 col-xs-6 {{ 'active' if page.link == entry.link }}">
-      <a href="{{ entry.link }}" title="{{ entry.title }}">
-        <img src="{{ entry.navbar.icon }}" alt="entry.title" />
+      <a href="{{ BASE_URL }}{{ entry.link }}" title="{{ entry.title }}">
+        <img src="{{ entry.navbar.icon | abs_link }}" alt="entry.title" />
         <h4>
           {{ entry.navbar.title|default(entry.title) }}
         </h4>
