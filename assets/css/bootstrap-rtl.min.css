@@ -10,17 +10,17 @@
 	font-family: "Nassim";
   src: url("/nassim-regular.eot");
 	src: local("☺"),
-	    url("/webtastic/assets/fonts/nassim-regular.woff") format("woff"),
-	    url("/webtastic/assets/fonts/nassim-regular.ttf") format("truetype");
+	    url("/assets/fonts/nassim-regular.woff") format("woff"),
+	    url("/assets/fonts/nassim-regular.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
 	font-family: "Nassim";
-	src: url("/webtastic/assets/fonts/nassim-bold.eot");
+	src: url("/assets/fonts/nassim-bold.eot");
 	src: local("☺"),
-	    url("/webtastic/assets/fonts/nassim-bold.woff") format("woff"),
-	    url("/webtastic/assets/fonts/nassim-bold.ttf") format("truetype");
+	    url("/assets/fonts/nassim-bold.woff") format("woff"),
+	    url("/assets/fonts/nassim-bold.ttf") format("truetype");
 	font-weight: bold;
 	font-style: normal;
 }
