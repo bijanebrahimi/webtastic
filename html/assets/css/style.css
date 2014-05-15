@@ -1,44 +1,34 @@
 @font-face {
-  font-family: DroidNaskh;
+  font-family: nassim23;
+  src: url('/html/assets/fonts/nassim-regular.eot');
+  src: url('/html/assets/fonts/nassim-regular.eot?#iefix') format('embedded-opentype'),
+       url('/html/assets/fonts/nassim-regular.woff') format('woff'),
+       url('/html/assets/fonts/nassim-regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-  src: url("/assets/fonts/DroidNaskh-Regular.eot");
-  src: url("/assets/fonts/DroidNaskh-Regular.eot?") format("embedded-opentype"), url("/assets/fonts/DroidNaskh-Regular.woff") format("woff"), url("/assets/fonts/DroidNaskh-Regular.ttf") format("truetype"), url("/assets/fonts/DroidNaskh-Regular.svg") format("svg");
 }
 @font-face {
-  font-family: DroidNaskh-Bold;
-  font-weight: bold;
-  font-style: bold;
-  src: url("/assets/fonts/DroidNaskh-Bold.eot");
-  src: url("/assets/fonts/DroidNaskh-Bold.eot?") format("embedded-opentype"), url("/assets/fonts/DroidNaskh-Bold.woff") format("woff"), url("/assets/fonts/DroidNaskh-Bold.ttf") format("truetype"), url("/assets/fonts/DroidNaskh-Bold.svg") format("svg");
-}
-@font-face {
-  font-family: Nasim;
+  font-family: nassim23-bold;
+  src: url('/html/assets/fonts/nassim-bold.eot');
+  src: url('/html/assets/fonts/nassim-bold.eot?#iefix') format('embedded-opentype'),
+       url('/html/assets/fonts/nassim-bold.woff') format('woff'),
+       url('/html/assets/fonts/nassim-bold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-  src: url("/assets/fonts/nassim-regular.eot");
-  src: url("/assets/fonts/nassim-regular.eot?") format("embedded-opentype"), url("/assets/fonts/nassim-regular.woff") format("woff"), url("/assets/fonts/nassim-regular.ttf") format("truetype"), url("/assets/fonts/nassim-regular.svg") format("svg");
-}
-@font-face {
-  font-family: Nassim-bold;
-  font-weight: bold;
-  font-style: bold;
-  src: url("/assets/fonts/nassim-bold.eot");
-  src: url("/assets/fonts/nassim-bold.eot?") format("embedded-opentype"), url("/assets/fonts/nassim-bold.woff") format("woff"), url("/assets/fonts/nassim-bold.ttf") format("truetype"), url("/assets/fonts/nassim-bold.svg") format("svg");
 }
 
 body {
   color: #333;
-  font-family: Nasim;
+  font-family: nassim23;
   font-size: 18px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Nassim-bold;
+  font-family: nassim23-bold;
 }
 
 .cover {
-  background: url('/assets/images/wide-image.jpg') no-repeat center center;
+  background: url(/html/assets/images/wide-image.jpg) no-repeat center center;
   /*position: fixed;*/
   width: 100%;
   height: 350px; /*same height as jumbotron */
@@ -121,7 +111,7 @@ ul.top-navbar li p {
 }
 
 .footer {
-  background: url(/assets/images/footer_bg.png);
+  background: url(/html/assets/images/footer_bg.png);
   padding: 30px 0px 0px 0px;
   margin-top: 50px;
   color: #808080;
