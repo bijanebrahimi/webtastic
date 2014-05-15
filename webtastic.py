@@ -8,6 +8,7 @@ import re
 
 TEMPLATE_PATH = "./template/"
 TEMPLATE_OPTIONS = {}
+BASE_URL = "/html"
 
 
 def write_file (path, content):
@@ -38,13 +39,21 @@ def main():
       titles.append(title[0])
     short_story_body = '\n'.join(titles)
     return short_story_body
-    
+  def abs_link (link):
+    if link.startswith('http'):
+      return link
+    else:
+      return BASE_URL + link
+  
   env.filters.update(markdown=markdownify)
   env.filters.update(sort_navbar=sort_navbar)
   env.filters.update(sort_ctime=sort_ctime)
   env.filters.update(printable_date=printable_date)
   env.filters.update(iso_date=iso_date)
   env.filters.update(short_story=short_story)
+  env.filters.update(abs_link=abs_link)
+  
+  env.globals.update(BASE_URL=BASE_URL)
     
   source = SourceTree('source')
   
@@ -56,16 +65,14 @@ def main():
       output_file = os.path.join('html/', entry.link[1:])
       output_content = template.render(page=entry, source=source)
       write_file(output_file, output_content)
-      # print template.render(page=entry)
   
-  # for f in tree.all_files():
-  #   generate_html_file(f)
-  #   f.url, f.name, f.attr('author'), f.attr('content')
-  #
-  # for f in tree.files('source'): => tree.root_files
-  #   add_header_link(f)
-  #   f.url, f.name, f.title, f.row
-  pass
+  f = open('template/style.scss')
+  stylesheet = f.read()
+  f.close()
+  compile_stylesheet = re.sub("\$BASE_URL", "/html", stylesheet)
+  f = open('html/assets/css/style.css', 'w')
+  f.write(compile_stylesheet)
+  f.close()
 
 if __name__ == '__main__':
   main()
