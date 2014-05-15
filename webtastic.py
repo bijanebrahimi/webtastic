@@ -8,7 +8,7 @@ import re
 
 TEMPLATE_PATH = "./template/"
 TEMPLATE_OPTIONS = {}
-BASE_URL = "/html"
+BASE_URL = "/webtastic"
 
 
 def write_file (path, content):
@@ -69,7 +69,7 @@ def main():
   f = open('template/style.scss')
   stylesheet = f.read()
   f.close()
-  compile_stylesheet = re.sub("\$BASE_URL", "/html", stylesheet)
+  compile_stylesheet = re.sub("\$BASE_URL", BASE_URL, stylesheet)
   f = open('html/assets/css/style.css', 'w')
   f.write(compile_stylesheet)
   f.close()
