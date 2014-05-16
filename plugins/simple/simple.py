@@ -22,7 +22,7 @@ class Simple(IPlugin):
     
     manager = PluginManagerSingleton.get()
     manager.app.parser.add_argument('-u', '--base-url',
-      metavar='BASE_URL', type=str, 
+      metavar='BASE_URL', type=str, default="",
       help='default base_url is /')
     
     manager.app.env.filters.update(date_printable=self.date_printable)
