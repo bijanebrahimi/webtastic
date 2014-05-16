@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <div class="reports">
+    {% for entry in source.src_files('source/reports/', false) | sort_by_published(true) %}
+    <div class="report col-md-12 col-sm-12 col-xs-12">
+      <h2 class="text-center">
+        <a class href="{{ entry.link }}">{{ entry.title }}</a>
+      </h2>
+      {% if entry.printable_date %}
+      <p class="text-center text-muted">{{ entry.printable_date }}</p>
+      {% endif %}
+      <p>
+        {{ entry.content | markdown_short_story | markdown }}
+      </p>
+      <hr/>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

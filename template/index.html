@@ -26,15 +26,15 @@
     {% endif %}
   </div>
   <div class="row description">
-    <div class="col-md-8">
+    <div class="col-md-8 right_content">
       {{ page.content | markdown }}
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 left_content">
       {% if page.map %}
-        <img class="img-responsive" src="{{ page.map.thumb | abs_link }}" alt="" />
+        <img class="img-responsive" src="{{ page.map.thumb | link }}" alt="" />
         <p class="text-mute">
           برای نمایی بزرگتر
-          <a target="_new" href="{{ page.map.url | abs_link }}">اینجا</a>
+          <a target="_new" href="{{ page.map.url | link }}">اینجا</a>
           را کلیک کنید.
         </p>
       {% endif %}
