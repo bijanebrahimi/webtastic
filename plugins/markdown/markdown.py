@@ -41,7 +41,9 @@ class Markdown(IPlugin):
   
   def markdown_short_story_filter (self, content):
     if content is not None:
-      less, more = content.split("<!--more-->")
+      less = more = ""
+      if "<!--more-->" in content:
+        less, more = content.split("<!--more-->")
       titles = []
       for title in re.findall("((\* )?##[^\n]+)", more):
         titles.append(title[0])

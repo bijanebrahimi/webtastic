@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # from lib import SourceTree
 import jinja2
+from jinja2.exceptions import TemplateNotFound
 import markdown
 import os
 import datetime
@@ -121,7 +122,12 @@ class Webtastic(object):
       
       # TODO: plugin's BEFORE_LOAD_TEMPLATE
       # TODO: set default layout
-      template = self.env.get_template('%s.html' % self.src_file.layout)
+      try:
+        # check if layout exists
+        # FIXME: there should be a better way to do this you Silly.
+        template = self.env.get_template(self.src_file.layout)
+      except TemplateNotFound as e:
+        template = self.env.get_template('%s.html' % self.src_file.layout)
       # TODO: plugin's AFTER_LOAD_TEMPLATE
       
       # TODO: add output variable
@@ -269,8 +275,12 @@ class WebtasticSourceFile(object):
   @property
   def link (self):
     """ Function doc """
-    root_directory = self.path.split("/")[0]
-    return self.path.replace(root_directory, '').replace('.md', '.html')
+    # remove `source` from the path
+    if self.output is not None:
+      return self.output
+    else:
+      root_directory = self.path.split("/")[0]
+      return self.path.replace(root_directory, '').replace('.md', '.html')
   
   @property
   def ctime (self):

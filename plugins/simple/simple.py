@@ -68,4 +68,5 @@ class Simple(IPlugin):
   
   def  sort_navbar_by(self, items, key='row', reverse=False):
     """ Function doc """
-    return sorted(items, key = lambda x: x.navbar.get(key, None) , reverse=reverse)
+    navbar_items = filter(lambda x: x.navbar!=None,  items)
+    return sorted(navbar_items, key = lambda x: x.navbar.get(key, None) , reverse=reverse)
